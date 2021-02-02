@@ -801,7 +801,7 @@ SubCMatrix<Real>::SubCMatrix(Real *data, MatrixIndexT num_rows,
   }
 }
 template <typename Real>
-void SubCMatrix<Real> AddMatMat(const Real alpha_r,
+void SubCMatrix<Real>::AddMatMat(const Real alpha_r,
                                 const Real alpha_i,
                                 const CMatrixBase<Real> &A, MatrixTransposeType transA,
                                 const CMatrixBase<Real> &B, MatrixTransposeType transB,
