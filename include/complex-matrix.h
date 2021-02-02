@@ -176,16 +176,7 @@ class CMatrixBase {
                  const CMatrixBase<Real> &B, MatrixTransposeType transB,
                  const Real beta_r, const Real beta_i);
 
-    inline SubCMatrix<Real> AddMatMat(const Real alpha_r,
-                                    const Real alpha_i,
-                                    const CMatrixBase<Real> &A, MatrixTransposeType transA,
-                                    const CMatrixBase<Real> &B, MatrixTransposeType transB,
-                                    const Real beta_r, const Real beta_i) const {
-    return AddMatMat(alpha_r, alpha_i,
-                    A, transA,
-                    B, transB,
-                    beta_r, beta_i);
-  }
+
 
   // this = this + alpha * a * b^{T or H}
   void AddVecVec(const Real alpha_r, const Real alpha_i,
@@ -308,6 +299,11 @@ class SubCMatrix : public CMatrixBase<Real> {
   SubCMatrix<Real>(const SubCMatrix &other)
       : CMatrixBase<Real>(other.data_, other.num_cols_, other.num_rows_,
                           other.stride_) {}
+
+  void AddMatMat(const Real alpha_r, const Real alpha_i,
+                 const CMatrixBase<Real> &A, MatrixTransposeType transA,
+                 const CMatrixBase<Real> &B, MatrixTransposeType transB,
+                 const Real beta_r, const Real beta_i);
 
   ~SubCMatrix<Real>() {}
 
