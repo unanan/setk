@@ -21,8 +21,8 @@
 #ifndef BEAMFORMER_H_
 #define BEAMFORMER_H_
 
-#include "include/complex-base.h"
 #include "include/complex-matrix.h"
+#include "include/complex-base.h"
 #include "include/complex-vector.h"
 
 namespace kaldi {

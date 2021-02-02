@@ -298,7 +298,8 @@ class SubCMatrix : public CMatrixBase<Real> {
 
   SubCMatrix<Real>(const SubCMatrix &other)
       : CMatrixBase<Real>(other.data_, other.num_cols_, other.num_rows_,
-                          other.stride_) {}
+                          other.stride_) {
+  }
 
   void AddMatMat(const Real alpha_r, const Real alpha_i,
                  const CMatrixBase<Real> &A, MatrixTransposeType transA,
