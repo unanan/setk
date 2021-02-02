@@ -38,6 +38,8 @@ elseif(UNIX)
     link_directories(${OPENBLAS_ROOT}/lib)
     set(DEPEND_LIBS ${DEPEND_LIBS} openblas)
     message(STATUS "defined OPENBLAS_ROOT=" $ENV{OPENBLAS_ROOT})
+    set(CXX_SPECIFIC_CFLAGS "-Wno-write-strings -fno-rtti")
+
 endif()
 
 add_subdirectory(include)
