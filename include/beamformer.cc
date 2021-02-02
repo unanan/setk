@@ -224,7 +224,7 @@ void Beamform(const CMatrixBase<BaseFloat> &src_stft,
   // enh_stft[f] = src_stft[f * t: f * t + t] * w^H
   for (int32 f = 0; f < num_bins; f++) {
     enh_stft->ColRange(f, 1)
-        .AddMatMat(1, 0, src_stft.RowRange(f * num_frames, num_frames),
+        .AddMatMat(1.f, 0.f, src_stft.RowRange(f * num_frames, num_frames),
                    kNoTrans, weights.RowRange(f, 1), kConjTrans, 0.f, 0.f);
   }
 }
