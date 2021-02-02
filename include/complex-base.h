@@ -38,13 +38,13 @@ typedef enum {
   kNoConj,
 } ConjugateType;
 
-//
-// typedef enum {
+
+typedef enum {
 //     kNoTrans        = 111,  // CblasNoTrans
 //     kTrans          = 112,  // CblasTrans
-//     kConjTrans      = 113,  // CblasConjTrans
-//     kConjNoTrans    = 114   // CblasConjNoTrans
-// } CMatrixTransposeType;
+    kConjTrans      = 113,  // CblasConjTrans
+    kConjNoTrans    = 114   // CblasConjNoTrans
+} CMatrixTransposeType;
 
 template <typename Real>
 struct Complex {
