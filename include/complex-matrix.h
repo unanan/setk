@@ -89,6 +89,7 @@ class CMatrixBase {
     return SubCMatrix<Real>(*this, 0, num_rows_, col_offset, num_cols);
   }
 
+
   inline const SubCVector<Real> Row(MatrixIndexT i) const {
     KALDI_ASSERT(static_cast<UnsignedMatrixIndexT>(i) <
                  static_cast<UnsignedMatrixIndexT>(num_rows_));
@@ -174,6 +175,17 @@ class CMatrixBase {
                  const CMatrixBase<Real> &A, MatrixTransposeType transA,
                  const CMatrixBase<Real> &B, MatrixTransposeType transB,
                  const Real beta_r, const Real beta_i);
+
+    inline SubCMatrix<Real> AddMatMat(const Real alpha_r,
+                                    const Real alpha_i,
+                                    const CMatrixBase<Real> &A, MatrixTransposeType transA,
+                                    const CMatrixBase<Real> &B, MatrixTransposeType transB,
+                                    const Real beta_r, const Real beta_i) const {
+    return AddMatMat(alpha_r, alpha_i,
+                    A, transA,
+                    B, transB,
+                    beta_r, beta_i);
+  }
 
   // this = this + alpha * a * b^{T or H}
   void AddVecVec(const Real alpha_r, const Real alpha_i,
