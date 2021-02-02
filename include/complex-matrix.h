@@ -305,7 +305,7 @@ class SubCMatrix : public CMatrixBase<Real> {
 //                 const CMatrixBase<Real> &A, MatrixTransposeType transA,
 //                 const CMatrixBase<Real> &B, MatrixTransposeType transB,
 //                 const Real beta_r, const Real beta_i);
-  using CMatrixBase::AddMatMat;
+  using CMatrixBase<Real>::AddMatMat;
   ~SubCMatrix<Real>() {}
 
  private:
