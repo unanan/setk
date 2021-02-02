@@ -29,8 +29,8 @@ namespace kaldi {
 template <typename Real>
 class CMatrixBase {
  public:
-  friend class CMatrix<Real>;
-  friend class SubCMatrix<Real>;
+//  friend class CMatrix<Real>;
+//  friend class SubCMatrix<Real>;
 
   inline MatrixIndexT NumRows() const { return num_rows_; }
 
