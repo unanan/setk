@@ -801,11 +801,12 @@ SubCMatrix<Real>::SubCMatrix(Real *data, MatrixIndexT num_rows,
   }
 }
 template <typename Real>
-void SubCMatrix<Real>::AddMatMat(const Real alpha_r,
-                                const Real alpha_i,
-                                const CMatrixBase<Real> &A, MatrixTransposeType transA,
-                                const CMatrixBase<Real> &B, MatrixTransposeType transB,
-                                const Real beta_r, const Real beta_i) const {
+void SubCMatrix<Real>::AddMatMat(const Real alpha_r, const Real alpha_i,
+                                  const CMatrixBase<Real> &A,
+                                  MatrixTransposeType transA,
+                                  const CMatrixBase<Real> &B,
+                                  MatrixTransposeType transB, const Real beta_r,
+                                  const Real beta_i) {
   KALDI_ASSERT(((transA == kNoTrans || transA == kConjNoTrans) &&
                 (transB == kNoTrans || transB == kConjNoTrans) &&
                 A.num_cols_ == B.num_rows_ && A.num_rows_ == num_rows_ &&
