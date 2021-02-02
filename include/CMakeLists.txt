@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
+include_directories(../)
+
 set(SETK_SRC ${CMAKE_SOURCE_DIR}/include/complex-matrix.cc
              ${CMAKE_SOURCE_DIR}/include/complex-vector.cc
              ${CMAKE_SOURCE_DIR}/include/stft.cc
