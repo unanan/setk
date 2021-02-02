@@ -36,3 +36,5 @@ local/
 
 # MAC
 .DS_Store
+*.xml
+*.iml
