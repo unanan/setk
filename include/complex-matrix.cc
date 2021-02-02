@@ -801,39 +801,39 @@ SubCMatrix<Real>::SubCMatrix(Real *data, MatrixIndexT num_rows,
     KALDI_ASSERT(this->stride_ >= this->num_cols_ * 2);
   }
 }
-template <typename Real>
-void SubCMatrix<Real>::AddMatMat(const Real alpha_r, const Real alpha_i,
-                                  const CMatrixBase<Real> &A,
-                                  MatrixTransposeType transA,
-                                  const CMatrixBase<Real> &B,
-                                  MatrixTransposeType transB, const Real beta_r,
-                                  const Real beta_i) {
-  KALDI_ASSERT(((transA == kNoTrans || transA == kConjNoTrans) &&
-                (transB == kNoTrans || transB == kConjNoTrans) &&
-                A.num_cols_ == B.num_rows_ && A.num_rows_ == num_rows_ &&
-                B.num_cols_ == num_cols_) ||
-               ((transA == kTrans || transA == kConjTrans) &&
-                (transB == kNoTrans || transB == kConjTrans) &&
-                A.num_rows_ == B.num_rows_ && A.num_cols_ == num_rows_ &&
-                B.num_cols_ == num_cols_) ||
-               ((transA == kNoTrans || transA == kConjNoTrans) &&
-                (transB == kTrans || transB == kConjTrans) &&
-                A.num_cols_ == B.num_cols_ && A.num_rows_ == num_rows_ &&
-                B.num_rows_ == num_cols_) ||
-               ((transA == kTrans || transA == kConjTrans) &&
-                (transB == kTrans || transB == kConjTrans) &&
-                A.num_rows_ == B.num_cols_ && A.num_cols_ == num_rows_ &&
-                B.num_rows_ == num_cols_));
-  KALDI_ASSERT(&A != this && &B != this);
-  if (num_rows_ == 0) return;
-  AdjustIn();
-  Complex<Real> alpha(alpha_r - alpha_i, alpha_r + alpha_i),
-      beta(beta_r, beta_i);
-  cblas_CZgemm(&alpha, transA, A.data_, A.num_rows_, A.num_cols_, A.stride_,
-               transB, B.data_, B.stride_, &beta, data_, num_rows_, num_cols_,
-               stride_);
-  AdjustOut();
-}
+//template <typename Real>
+//void SubCMatrix<Real>::AddMatMat(const Real alpha_r, const Real alpha_i,
+//                                  const CMatrixBase<Real> &A,
+//                                  MatrixTransposeType transA,
+//                                  const CMatrixBase<Real> &B,
+//                                  MatrixTransposeType transB, const Real beta_r,
+//                                  const Real beta_i) {
+//  KALDI_ASSERT(((transA == kNoTrans || transA == kConjNoTrans) &&
+//                (transB == kNoTrans || transB == kConjNoTrans) &&
+//                A.num_cols_ == B.num_rows_ && A.num_rows_ == num_rows_ &&
+//                B.num_cols_ == num_cols_) ||
+//               ((transA == kTrans || transA == kConjTrans) &&
+//                (transB == kNoTrans || transB == kConjTrans) &&
+//                A.num_rows_ == B.num_rows_ && A.num_cols_ == num_rows_ &&
+//                B.num_cols_ == num_cols_) ||
+//               ((transA == kNoTrans || transA == kConjNoTrans) &&
+//                (transB == kTrans || transB == kConjTrans) &&
+//                A.num_cols_ == B.num_cols_ && A.num_rows_ == num_rows_ &&
+//                B.num_rows_ == num_cols_) ||
+//               ((transA == kTrans || transA == kConjTrans) &&
+//                (transB == kTrans || transB == kConjTrans) &&
+//                A.num_rows_ == B.num_cols_ && A.num_cols_ == num_rows_ &&
+//                B.num_rows_ == num_cols_));
+//  KALDI_ASSERT(&A != this && &B != this);
+//  if (num_rows_ == 0) return;
+//  AdjustIn();
+//  Complex<Real> alpha(alpha_r - alpha_i, alpha_r + alpha_i),
+//      beta(beta_r, beta_i);
+//  cblas_CZgemm(&alpha, transA, A.data_, A.num_rows_, A.num_cols_, A.stride_,
+//               transB, B.data_, B.stride_, &beta, data_, num_rows_, num_cols_,
+//               stride_);
+//  AdjustOut();
+//}
 
 template class CMatrix<float>;
 template class CMatrix<double>;

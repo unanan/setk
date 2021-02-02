@@ -29,8 +29,8 @@ namespace kaldi {
 template <typename Real>
 class CMatrixBase {
  public:
-//  friend class CMatrix<Real>;
-//  friend class SubCMatrix<Real>;
+  friend class CMatrix<Real>;
+  friend class SubCMatrix<Real>;
 
   inline MatrixIndexT NumRows() const { return num_rows_; }
 
@@ -301,10 +301,10 @@ class SubCMatrix : public CMatrixBase<Real> {
                           other.stride_) {
   }
 
-  void AddMatMat(const Real alpha_r, const Real alpha_i,
-                 const CMatrixBase<Real> &A, MatrixTransposeType transA,
-                 const CMatrixBase<Real> &B, MatrixTransposeType transB,
-                 const Real beta_r, const Real beta_i);
+//  void AddMatMat(const Real alpha_r, const Real alpha_i,
+//                 const CMatrixBase<Real> &A, MatrixTransposeType transA,
+//                 const CMatrixBase<Real> &B, MatrixTransposeType transB,
+//                 const Real beta_r, const Real beta_i);
 
   ~SubCMatrix<Real>() {}
 
